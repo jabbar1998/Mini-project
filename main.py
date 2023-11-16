@@ -68,10 +68,15 @@ while Permission2:
     print('''
     Please choice:
     1.total_dept  
-    2.See Object
-    3.Delet in the Tabel
-    4.Save in the Table
-    5.Exit
+    2.total_overtime
+    3.total_pay
+    4.total_hours
+    5.employee_upper_pay
+    6.employee_max_work
+    7.department_max_pay
+    8.on_time_department
+    9.employee_min_late
+    10.unemployed_count
         ''')
     value = input('Enter: ')
     match value:
@@ -81,5 +86,21 @@ while Permission2:
             x=int(input("Enter Hours: "))
             print(task5.total_overtime(x))
         case '3':
-            
-    
+            print(task5.total_pay)
+        case '4':
+            x=int(input("Enter: "))
+            print(task5.total_hours(x))
+        case '5':
+            x=int(input("Enter Hours: "))
+            print(task5.employee_upper_pay(x))
+        case '6':
+            print(task5.employee_max_work)
+        case '7':
+            print(task5.department_max_pay)   
+        case '8':
+            x=int(input("Enter: "))
+            print(task5.employee_min_late(x))
+        case '9':
+            print(task5.unemployed_count)
+        case '10':
+            print(task5.unemployed_count)
