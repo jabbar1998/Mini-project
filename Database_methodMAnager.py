@@ -4,10 +4,10 @@ import psycopg2
 class Database:
     def __enter__(self):
         self.conn = psycopg2.connect(
-            host='',
-            dbname='',
-            user='',
-            password='',
+            host='94.101.187.206',
+            dbname='jabardb',
+            user='jabar',
+            password='jabbar1998%',
             port=5432
         )
         return self.conn
@@ -26,7 +26,7 @@ class Manager:
             with Database() as conn:
                 with conn.cursor() as cur:
                     condithions = [f"{col} = %s" for col in kwargs.keys()]
-                    values = tuple(kwargs.values())
+                    values = tuple(kwargs.values()) 
                     query = f"select * from {table_name} WHERE {' AND '.join(condithions)}"
                     cur.execute(query,values)
                     result = cur.fetchall()
@@ -60,7 +60,7 @@ class Manager:
                         condithions = [f"{col} = %s" for col in kwargs.keys()]
                         values = tuple(kwargs.values())
                         query = f"DELETE FROM {table_name} CASCADE WHERE {' AND '.join(condithions)} "
-                        print(cur.execute(query,values))
+                        cur.execute(query,values)
                         return f"The Delet Is Successful! ."
         except Exception as error:
             return f"You have error {error}"

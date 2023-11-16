@@ -27,6 +27,9 @@ while True:
                     except Exception as e:
                         print(e)
                         Permission1 = False
+            break            
+        elif m == 'n':
+            Permission1 = True
             break
         else:
             raise 'Please Enter Courrect input! .'
@@ -43,6 +46,9 @@ while Permission1:
     5.Exit
         ''')
     value = input('Enter: ')
+    if value=='5':
+        Permission2 = True
+        break
     print('Explane : pk:value1 , phone:value2 ...')
     table_name = input("Enter table name: ")
     user_input = input("Enter column and value pairs (e.g. column1:value1, column2:value2): ").strip()
@@ -58,11 +64,8 @@ while Permission1:
             result = Database_methodMAnager.Manager.delet(table_name, **kwargs)
             print(result)
         case '4':
-            result = Database_methodMAnager.Manager.filter(table_name, **kwargs)
+            result = Database_methodMAnager.Manager.save(table_name, **kwargs)
             print(result)
-        case '5':
-            Permission2 = True
-            break
 
 while Permission2:
     print('''
@@ -83,15 +86,15 @@ while Permission2:
         case '1':
             print(task5.total_dept())
         case '2':
-            x=int(input("Enter Hours: "))
+            x=10
             print(task5.total_overtime(x))
         case '3':
             print(task5.total_pay)
         case '4':
-            x=int(input("Enter: "))
+            x=115
             print(task5.total_hours(x))
         case '5':
-            x=int(input("Enter Hours: "))
+            x=2000
             print(task5.employee_upper_pay(x))
         case '6':
             print(task5.employee_max_work)
@@ -101,6 +104,7 @@ while Permission2:
             x=int(input("Enter: "))
             print(task5.employee_min_late(x))
         case '9':
-            print(task5.unemployed_count)
+            x='09:00:00'
+            print(task5.employee_min_late(x))
         case '10':
             print(task5.unemployed_count)
